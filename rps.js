@@ -141,26 +141,13 @@ function playRound(resultMessage) {
     updateScoreboard();
 
     if (player1.wins === 3) {
-        displayWinner(player1.name);
+        displayWinner(player1);
     } else if (player2.wins === 3) {
-        displayWinner(player2.name);
+        displayWinner(player2);
     } else {
         resetHands();
     }
 }
-
-// function displayWinner(winnerName) {
-//     // Hide game page and show congrats page
-//     document.getElementById('gamePage').style.display = 'none';
-//     document.getElementById('congratsPage').style.display = 'block';
-
-//     // Display winner message
-//     if (winnerName === 'Player 1') {
-//         document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! You are the champion!`;
-//     } else if (winnerName === 'Player 2') {
-//         document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! Sadly you lost this fight ${player1.name}!`;
-//     }
-// }
 
 function getHandSymbol(hand) {
     switch (hand) {
@@ -184,24 +171,25 @@ function resetHands() {
     player1.hand = '';
     player2.hand = '';
 }
-function checkWinner() {
-    if (player1.wins === WINNING_SCORE) {
-        displayWinner(player1.name);
-    } else if (player2.wins === WINNING_SCORE) {
-        displayWinner(player2.name);
-    }
-}
 
-function displayWinner(winnerName) {
+// function checkWinner() {
+//     if (player1.wins === WINNING_SCORE) {
+//         displayWinner(player1.name);
+//     } else if (player2.wins === WINNING_SCORE) {
+//         displayWinner(player2.name);
+//     }
+// }
+
+function displayWinner(winner) {
     // Hide game page and show congrats page
     document.getElementById('gamePage').style.display = 'none';
     document.getElementById('congratsPage').style.display = 'block';
 
     // Display winner message
-    if (winnerName === 'Player 1') {
-         document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! You are the champion!`;
-        } else if (winnerName === 'Player 2') {
-           document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! Sadly you lost this fight ${player1.name}!`;
+    if (winner === player1) {
+         document.getElementById('winnerMessage').innerText = `Congratulations ${winner.name}! You are the champion!`;
+        } else if (winner === player2) {
+           document.getElementById('winnerMessage').innerText = `Congratulations ${winner.name}! Sadly you lost this fight ${player1.name}!`;
          }
 }
 
