@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('https://wallpapers.com/images/featured/hunter-x-hunter-6l28uunxtr53l0un.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.player {
+    flex: 1;
+    text-align: center;
+}
+
+.player h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #000000; 
+}
+
+.hand {
+    font-size: 4em;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#roundResult {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #000000; 
+}
