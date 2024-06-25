@@ -149,18 +149,18 @@ function playRound(resultMessage) {
     }
 }
 
-function displayWinner(winnerName) {
-    // Hide game page and show congrats page
-    document.getElementById('gamePage').style.display = 'none';
-    document.getElementById('congratsPage').style.display = 'block';
+// function displayWinner(winnerName) {
+//     // Hide game page and show congrats page
+//     document.getElementById('gamePage').style.display = 'none';
+//     document.getElementById('congratsPage').style.display = 'block';
 
-    // Display winner message
-    if (winnerName === 'Player 1') {
-        document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! You are the champion!`;
-    } else if (winnerName === 'Player 2') {
-        document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! Sadly you lost this fight ${player1.name}!`;
-    }
-}
+//     // Display winner message
+//     if (winnerName === 'Player 1') {
+//         document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! You are the champion!`;
+//     } else if (winnerName === 'Player 2') {
+//         document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! Sadly you lost this fight ${player1.name}!`;
+//     }
+// }
 
 function getHandSymbol(hand) {
     switch (hand) {
@@ -183,4 +183,30 @@ function updateScoreboard() {
 function resetHands() {
     player1.hand = '';
     player2.hand = '';
+}
+function checkWinner() {
+    if (player1.wins === WINNING_SCORE) {
+        displayWinner(player1.name);
+    } else if (player2.wins === WINNING_SCORE) {
+        displayWinner(player2.name);
+    }
+}
+
+function displayWinner(winnerName) {
+    // Hide game page and show congrats page
+    document.getElementById('gamePage').style.display = 'none';
+    document.getElementById('congratsPage').style.display = 'block';
+
+    // Display winner message
+    if (winnerName === 'Player 1') {
+         document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! You are the champion!`;
+        } else if (winnerName === 'Player 2') {
+           document.getElementById('winnerMessage').innerText = `Congratulations ${winnerName}! Sadly you lost this fight ${player1.name}!`;
+         }
+}
+
+function restartGame() {
+    // Show home page and hide congrats page
+    document.getElementById('congratsPage').style.display = 'none';
+    document.getElementById('homePage').style.display = 'block';
 }
